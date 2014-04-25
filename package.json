@@ -1,0 +1,50 @@
+{
+    "name": "flowz-changelog",
+    "codename": "",
+    "version": "0.0.1",
+    "description": "Generate a markdown changelog from git commit metadata or issues",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha test/*.js index.js lib/*.js"
+    },
+    "files": [
+        "index.js",
+        "lib/",
+        "test/"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/flowz-io/changelogger.git"
+    },
+    "keywords": [
+        "changelog"
+    ],
+    "license": "BSD",
+    "contributors": [
+        {
+          "name": "Brian Ford"
+        },
+        {
+          "name": "Vojta Jína"
+        },
+        {
+          "name": "Andy Joslin"
+        },
+        {
+          "name": "Shane Reid"
+        }
+    ],
+    "dependencies": {
+        "lodash.assign": "~2.4.1",
+        "event-stream": "~3.1.0",
+        "github": "0.1.15",
+        "commander": "2.2.0",
+        "handlebars": "1.0.12",
+        "async": "0.6.2"
+    },
+    "devDependencies": {
+        "chai": "~1.7.2",
+        "sinon": "~1.7.3",
+        "shelljs": "~0.2.6"
+    }
+}
