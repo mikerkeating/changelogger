@@ -53,13 +53,13 @@ def create_update_file(file_path, contents, message, prepend=False):
 
     return commit_data
 
-print "access_token: " access_token
-print "commit_hash: " commit_hash
-print "current_user: " current_user
-print "current_repo: " current_repo
-print "current_branch: " current_branch
-print "current_changelog: " current_changelog
-print "full_changelog: " full_changelog
+print "access_token: " + access_token
+print "commit_hash: " + commit_hash
+print "current_user: " + current_user
+print "current_repo: " + current_repo
+print "current_branch: " + current_branch
+print "current_changelog: " + current_changelog
+print "full_changelog: " + full_changelog
 
 commit_data = gh.git_data.commits.get(commit_hash)
 
