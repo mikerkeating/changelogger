@@ -110,9 +110,14 @@ if bump_message:
         argument_str += '--codename \''+bump_codename+'\''
 
 
-    changelog = muterun_js('build_files/make-changelog.js', argument_str)
+    changelog = muterun_js('build_files/changelogger/make-changelog.js', argument_str)
 
-    changelog_str = changelog.stdout
+    changelog_str = ''
+    if changelog.exitcode == 0:
+        changelog_str = changelog.stdout
+    else:
+        print "[Changelog Error] ExitCode: " + str(changelog.exitcode) + ", Error Message: " + str(changelog.stdout)
+        exit(1)
 
     cl_commit = False
 
