@@ -116,7 +116,7 @@ if bump_message:
     if changelog.exitcode == 0:
         changelog_str = changelog.stdout
     else:
-        print "[Changelog Error] ExitCode: " + str(changelog.exitcode) + ", Error Message: " + str(changelog.stdout)
+        print "[Changelog Error] ExitCode: " + str(changelog.exitcode) + ", Error Message: " + str(changelog.stderr)
         exit(1)
 
     cl_commit = False
