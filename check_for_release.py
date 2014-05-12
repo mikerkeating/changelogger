@@ -121,9 +121,7 @@ if bump_message:
 
     cl_commit = False
 
-    print "ChangeLog: " + changelog_str
-
-    exit()
+    print "Generated ChangeLog: " + changelog_str
 
     create_update_file(current_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+current_changelog+' for Release '+new_version)
     cl_commit = create_update_file(full_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+full_changelog+' for Release '+new_version, True)
