@@ -88,6 +88,16 @@ function generate(options, done) {
     if (!options.tag_version)
         return done('No version specified');
 
+    if(options.tag_version.indexOf('.0.0', options.tag_version.length - 4) === -1) {
+        git.getLatestTags(function(err, tags) {
+            if(tags['patch'])
+                options['latest_patch'] = tags['patch'];
+
+            if(tags['minor'])
+                options['latest_minor'] = tags['minor'];
+        });
+    }
+
     git.latestTag(function(err, tag) {
         if (err || !tag)
             return done('Failed to read git tags.\n'+err);
