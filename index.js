@@ -88,6 +88,9 @@ function generate(options, done) {
     if (!options.tag_version)
         return done('No version specified');
 
+    if(options['repo'] && options['owner'])
+        options['repository'] = 'https://github.com/'+options['owner']+'/'+options['repo'];
+
     if(options.tag_version.indexOf('.0.0', options.tag_version.length - 4) === -1) {
         git.getLatestTags(function(err, tags) {
             if(tags['patch'])
