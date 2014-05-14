@@ -123,14 +123,14 @@ if bump_message:
 
     cl_commit = False
 
-    current_changelog = changelog_str
+    curr_changelog = changelog_str
 
     if os.path.isfile('CHANGELOG.md'):
         with open('CHANGELOG.md', 'r') as f:
-            current_changelog += f.read()
+            curr_changelog += f.read()
 
     with open('CHANGELOG.md', 'w') as f:
-        f.write(current_changelog)
+        f.write(curr_changelog)
 
     with open('CHANGELOG.current.md', 'w') as f:
         f.write(changelog_str)
