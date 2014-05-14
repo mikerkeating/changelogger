@@ -123,7 +123,17 @@ if bump_message:
 
     cl_commit = False
 
-    print "Generated ChangeLog: " + changelog_str
+    current_changelog = changelog_str
+
+    if os.path.isfile('CHANGELOG.md'):
+        with open('CHANGELOG.md', 'r') as f:
+            current_changelog += f.read()
+
+    with open('CHANGELOG.md', 'w') as f:
+        f.write(current_changelog)
+
+    with open('CHANGELOG.current.md', 'w') as f:
+        f.write(changelog_str)
 
     create_update_file(current_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+current_changelog+' for Release '+new_version)
     cl_commit = create_update_file(full_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+full_changelog+' for Release '+new_version, True)
