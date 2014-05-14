@@ -105,9 +105,11 @@ if bump_message:
         release_name += ' "'+bump_codename+'"'
 
     argument_str = '--tag_version '+new_version
+    argument_str += ' --repo '+current_repo
+    argument_str += ' --owner '+current_user
 
     if bump_codename:
-        argument_str += '--codename \''+bump_codename+'\''
+        argument_str += ' --codename \''+bump_codename+'\''
 
 
     changelog = muterun_js('build_files/changelogger/make-changelog.js', argument_str)
