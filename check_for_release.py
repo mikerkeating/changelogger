@@ -123,6 +123,9 @@ if bump_message:
 
     cl_commit = False
 
+    create_update_file(current_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+current_changelog+' for Release '+new_version)
+    cl_commit = create_update_file(full_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+full_changelog+' for Release '+new_version, True)
+
     curr_changelog = changelog_str
 
     if os.path.isfile('CHANGELOG.md'):
@@ -134,11 +137,6 @@ if bump_message:
 
     with open('CHANGELOG.current.md', 'w') as f:
         f.write(changelog_str)
-
-    create_update_file(current_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+current_changelog+' for Release '+new_version)
-    cl_commit = create_update_file(full_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+full_changelog+' for Release '+new_version, True)
-
-
 
     commit_sha = cl_commit.commit['sha']
 
