@@ -128,16 +128,20 @@ if bump_message:
     create_update_file(current_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+current_changelog+' for Release '+new_version)
     cl_commit = create_update_file(full_changelog, changelog_str, 'chore(changelog): flowz-changebot create '+full_changelog+' for Release '+new_version, True)
 
+
+
     commit_sha = cl_commit.commit['sha']
 
     # Needs to be done after changelog is created.
 
-    gh.repos.releases.create({
+    create_response = gh.repos.releases.create({
         'tag_name':new_version,
-        'target_committish':commit_sha,
+        'target_commitish':commit_sha,
         'name':release_name,
         'body':changelog_str
     })
+
+    print 'Changelog Creation Commit SHA: '+create_response.target_commitish+' / '+cl_commit.commit['sha']
 else:
     print "No bump message found."
 # Bump Message: [[BUMP:MAJOR]] OR [[BUMP:MINOR]] OR [[BUMP:PATCH]] OR [[BUMP:x.x.x]] OR [[BUMP:WHATEVER:Codename]]
