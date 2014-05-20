@@ -91,8 +91,11 @@ if bump_message:
 
         if bump_version == 'MAJOR':
             exploded_version[0] = str(int(exploded_version[0]) + 1)
+            exploded_version[1] = '0'
+            exploded_version[2] = '0'
         elif bump_version == 'MINOR':
             exploded_version[1] = str(int(exploded_version[1]) + 1)
+            exploded_version[2] = '0'
         elif bump_version == 'PATCH':
             exploded_version[2] = str(int(exploded_version[2]) + 1)
 
